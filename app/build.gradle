@@ -1,6 +1,7 @@
 apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'application'
-apply plugin: 'org.sonarqube' version '7.1.0.6387'
+apply plugin: 'org.sonarqube'
+apply plugin: 'checkstyle'
 
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
@@ -13,7 +14,7 @@ tasks.run {
     standardInput = System.in
 }
 
-sonar {
+sonarqube {
     properties {
         property "sonar.projectKey", "koleslena_java-project-61"
         property "sonar.organization", "koleslena"
@@ -28,6 +29,7 @@ buildscript {
 
     dependencies {
         classpath 'com.github.ben-manes:gradle-versions-plugin:+'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
     }
 }
 
