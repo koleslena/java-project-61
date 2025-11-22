@@ -26,6 +26,11 @@ public class CalcGame extends AbstractGame {
         super(scanner);
     }
 
+    protected void greeting() {
+        super.greeting();
+        System.out.println("What is the result of the expression?");
+    }
+
     @Override
     protected void initQuestion() {
         this.numOne = random.nextInt(MAX - MIN + 1) + MIN;

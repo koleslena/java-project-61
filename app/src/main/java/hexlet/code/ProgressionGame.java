@@ -39,6 +39,11 @@ public class ProgressionGame extends AbstractGame {
         System.out.println("Question: " + sb);
     }
 
+    protected void greeting() {
+        super.greeting();
+        System.out.println("What number is missing in the progression?");
+    }
+
     @Override
     protected boolean isRight(String answer) {
         return Integer.valueOf(answer).equals(this.getNext(this.resultIdx));

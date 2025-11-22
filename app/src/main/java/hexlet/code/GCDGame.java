@@ -20,6 +20,12 @@ public class GCDGame extends AbstractGame {
         }
         return a;
     }
+
+    protected void greeting() {
+        super.greeting();
+        System.out.println("Find the greatest common divisor of given numbers.");
+    }
+
     @Override
     protected void initQuestion() {
         this.numOne = random.nextInt(MAX - MIN + 1) + MIN;

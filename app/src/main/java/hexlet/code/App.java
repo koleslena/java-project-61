@@ -41,6 +41,9 @@ public class App {
             case Game.PROGRESSION:
                 new ProgressionGame(scanner).play();
                 break;
+            case Game.PRIME:
+                new PrimeGame(scanner).play();
+                break;
             default:
                 break;
         }

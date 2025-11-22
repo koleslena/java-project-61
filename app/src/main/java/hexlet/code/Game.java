@@ -10,7 +10,8 @@ public enum Game {
     EVEN("Even", "2"),
     CALC("Calc", "3"),
     GCD("GCD", "4"),
-    PROGRESSION("Progression", "5");
+    PROGRESSION("Progression", "5"),
+    PRIME("Prime", "6");
 
     private final String number;
     private final String name;
