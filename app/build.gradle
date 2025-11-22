@@ -8,6 +8,10 @@ application {
     mainClass = 'hexlet.code.App'
 }
 
+tasks.run {
+    standardInput = System.in
+}
+
 buildscript {
     repositories {
         mavenLocal()
