@@ -8,7 +8,8 @@ public enum Game {
     EXIT("Exit", "0"),
     GREET("Greet", "1"),
     EVEN("Even", "2"),
-    CALC("Calc", "3");
+    CALC("Calc", "3"),
+    GCD("GCD", "4");
 
     private final String number;
     private final String name;

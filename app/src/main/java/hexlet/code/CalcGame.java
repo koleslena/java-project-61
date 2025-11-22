@@ -20,6 +20,7 @@ public class CalcGame extends AbstractGame {
 
     private int numOne;
     private int numTwo;
+    private int result;
     private String operator;
 
     public CalcGame(Scanner scanner) {
@@ -31,6 +32,7 @@ public class CalcGame extends AbstractGame {
         this.numOne = random.nextInt(MAX - MIN + 1) + MIN;
         this.numTwo = random.nextInt(MAX - MIN + 1) + MIN;
         this.operator = new ArrayList<>(operatorsMap.keySet()).get(random.nextInt(4));
+        this.result = operatorsMap.get(this.operator).applyAsInt(this.numOne, this.numTwo);
     }
 
     @Override
@@ -41,13 +43,11 @@ public class CalcGame extends AbstractGame {
 
     @Override
     protected boolean isRight(String answer) {
-        int result = operatorsMap.get(this.operator).applyAsInt(this.numOne, this.numTwo);
-        return Integer.valueOf(answer).equals(result);
+        return Integer.valueOf(answer).equals(this.result);
     }
 
     @Override
     protected String rightAnswer() {
-        int result = operatorsMap.get(this.operator).applyAsInt(this.numOne, this.numTwo);
-        return String.valueOf(result);
+        return String.valueOf(this.result);
     }
 }

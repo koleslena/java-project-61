@@ -35,6 +35,9 @@ public class App {
             case Game.CALC:
                 new CalcGame(scanner).play();
                 break;
+            case Game.GCD:
+                new GCDGame(scanner).play();
+                break;
         }
 
         scanner.close();
