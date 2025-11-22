@@ -1,8 +1,12 @@
 apply plugin: 'com.github.ben-manes.versions'
-apply plugin: 'java'
+apply plugin: 'application'
 
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'hexlet.code.App'
+}
 
 buildscript {
     repositories {
