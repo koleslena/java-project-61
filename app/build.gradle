@@ -1,0 +1,30 @@
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'java'
+
+group = 'hexlet.code'
+version = '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath 'com.github.ben-manes:gradle-versions-plugin:+'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
