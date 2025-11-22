@@ -28,7 +28,7 @@ tasks.run {
     standardInput = System.in
 }
 
-tasks.withType(Checkstyle) {
+tasks.withType(Checkstyle).configureEach {
     reports {
         xml.required = false
         html.required = true
@@ -39,6 +39,7 @@ sonar {
     properties {
         property "sonar.projectKey", "koleslena_java-project-61"
         property "sonar.organization", "koleslena"
+        property "sonar.working.directory" "/app"
     }
 }
 
