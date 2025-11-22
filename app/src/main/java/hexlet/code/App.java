@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import java.util.Scanner;
+
 /**
  * App main.
  */
@@ -11,8 +13,27 @@ public class App {
      * @param args command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Welcome to the Brain Games!");
 
-        Cli.greetings();
+        System.out.print(Game.printGames());
+
+        final Scanner scanner = new Scanner(System.in);
+
+        final String game = scanner.next();
+
+        System.out.println("Your choice: " + game);
+
+        switch (Game.fromNumber(game)) {
+            case Game.DEFAULT:
+                System.out.println("There is no game " + game + "!");
+                break;
+            case Game.GREET:
+                new GreetGame(scanner).play();
+                break;
+            case Game.EVEN:
+                new EvenGame(scanner).play();
+                break;
+        }
+
+        scanner.close();
     }
 }
