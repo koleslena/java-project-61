@@ -39,7 +39,7 @@ sonar {
     properties {
         property "sonar.projectKey", "koleslena_java-project-61"
         property "sonar.organization", "koleslena"
-        property "sonar.working.directory" "/app"
+        property "sonar.working.directory", "/app"
     }
 }
 
