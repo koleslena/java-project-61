@@ -28,6 +28,13 @@ tasks.run {
     standardInput = System.in
 }
 
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = false
+        html.required = true
+    }
+}
+
 sonar {
     properties {
         property "sonar.projectKey", "koleslena_java-project-61"
