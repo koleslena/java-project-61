@@ -1,17 +1,20 @@
 package hexlet.code;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.function.IntBinaryOperator;
 
 public class CalcGame extends AbstractGame {
 
-    private static final Map<String, IntBinaryOperator> operatorsMap = new HashMap<>();
+    private static final Map<String, IntBinaryOperator> OPERATORS_MAP = new HashMap<>();
 
     static {
-        operatorsMap.put("+", Integer::sum);
-        operatorsMap.put("-", (a, b) -> a - b);
-        operatorsMap.put("*", (a, b) -> a * b);
-        operatorsMap.put("/", (a, b) -> a / b);
+        OPERATORS_MAP.put("+", Integer::sum);
+        OPERATORS_MAP.put("-", (a, b) -> a - b);
+        OPERATORS_MAP.put("*", (a, b) -> a * b);
+        OPERATORS_MAP.put("/", (a, b) -> a / b);
     }
 
     private int numOne;
@@ -27,14 +30,14 @@ public class CalcGame extends AbstractGame {
     protected void initQuestion() {
         this.numOne = random.nextInt(MAX - MIN + 1) + MIN;
         this.numTwo = random.nextInt(MAX - MIN + 1) + MIN;
-        this.operator = new ArrayList<>(operatorsMap.keySet()).get(random.nextInt(4));
-        this.result = operatorsMap.get(this.operator).applyAsInt(this.numOne, this.numTwo);
+        this.operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(random.nextInt(4));
+        this.result = OPERATORS_MAP.get(this.operator).applyAsInt(this.numOne, this.numTwo);
     }
 
     @Override
     protected void question() {
-        System.out.println("Question: " + this.numOne + " " +
-                this.operator + " " + this.numTwo);
+        System.out.println("Question: " + this.numOne + " "
+                + this.operator + " " + this.numTwo);
     }
 
     @Override

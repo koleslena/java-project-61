@@ -7,7 +7,7 @@ public abstract class AbstractGame extends GreetGame implements GameInterface {
     protected static final int MIN = 1;
     protected static final int MAX = 100;
 
-    private final int SUCCESSFUL_ATTEMPTS = 3;
+    private static final int SUCCESSFUL_ATTEMPTS = 3;
 
     protected final Random random = new Random();
 
@@ -41,13 +41,13 @@ public abstract class AbstractGame extends GreetGame implements GameInterface {
             final String answer = this.scanner.next();
             System.out.println("Your answer: " + answer);
 
-            if (this.isRight(answer)){
+            if (this.isRight(answer)) {
                 System.out.println("Correct!");
                 attemps++;
             } else {
-                System.out.println(this.cover(answer) +
-                        " is wrong answer ;(. Correct answer was " +
-                        this.cover(this.rightAnswer()) + ".");
+                System.out.println(this.cover(answer)
+                        + " is wrong answer ;(. Correct answer was "
+                        + this.cover(this.rightAnswer()) + ".");
                 System.out.println("Let's try again, " + this.userName + "!");
                 attemps = 0;
             }

@@ -41,6 +41,8 @@ public class App {
             case Game.PROGRESSION:
                 new ProgressionGame(scanner).play();
                 break;
+            default:
+                break;
         }
 
         scanner.close();

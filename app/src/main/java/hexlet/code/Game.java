@@ -15,12 +15,12 @@ public enum Game {
     private final String number;
     private final String name;
 
-    public static final Map<String, Game> numberMap = new HashMap<>();
+    public static final Map<String, Game> NUMBER_MAP = new HashMap<>();
 
     static {
         for (Game game : values()) {
             if (game != DEFAULT) {
-                numberMap.put(game.number, game);
+                NUMBER_MAP.put(game.number, game);
             }
         }
     }
@@ -31,7 +31,7 @@ public enum Game {
     }
 
     public static Game fromNumber(String number) {
-        Game game = numberMap.get(number);
+        Game game = NUMBER_MAP.get(number);
         if (game == null) {
             return DEFAULT;
         }
@@ -40,7 +40,7 @@ public enum Game {
 
     public static String printGames() {
         StringBuilder sb = new StringBuilder("Please enter the game number and press Enter.\n");
-        for (Game game : numberMap.values()) {
+        for (Game game : NUMBER_MAP.values()) {
             sb.append(game.number + " - " + game.name + "\n");
         }
         return sb.toString();
