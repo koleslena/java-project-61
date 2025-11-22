@@ -1,10 +1,15 @@
 package hexlet.code;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public abstract class AbstractGame extends GreetGame implements GameInterface {
+    protected static final int MIN = 1;
+    protected static final int MAX = 100;
 
     private final int SUCCESSFUL_ATTEMPTS = 3;
+
+    protected final Random random = new Random();
 
     protected abstract void initQuestion();
 

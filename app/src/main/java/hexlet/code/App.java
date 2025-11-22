@@ -38,6 +38,9 @@ public class App {
             case Game.GCD:
                 new GCDGame(scanner).play();
                 break;
+            case Game.PROGRESSION:
+                new ProgressionGame(scanner).play();
+                break;
         }
 
         scanner.close();

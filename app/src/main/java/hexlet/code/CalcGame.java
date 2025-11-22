@@ -4,10 +4,8 @@ import java.util.*;
 import java.util.function.IntBinaryOperator;
 
 public class CalcGame extends AbstractGame {
-    private static final int MIN = 1;
-    private static final int MAX = 100;
 
-    public static final Map<String, IntBinaryOperator> operatorsMap = new HashMap<>();
+    private static final Map<String, IntBinaryOperator> operatorsMap = new HashMap<>();
 
     static {
         operatorsMap.put("+", Integer::sum);
@@ -15,8 +13,6 @@ public class CalcGame extends AbstractGame {
         operatorsMap.put("*", (a, b) -> a * b);
         operatorsMap.put("/", (a, b) -> a / b);
     }
-
-    private final Random random = new Random();
 
     private int numOne;
     private int numTwo;

@@ -1,17 +1,11 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class EvenGame extends AbstractGame {
 
     private static final String NO = "no";
     private static final String YES = "yes";
-
-    private static final int MIN = 1;
-    private static final int MAX = 100;
-
-    private final Random random = new Random();
 
     private int num;
 
