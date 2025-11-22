@@ -16,6 +16,8 @@ public class CalcGame extends AbstractGame {
         operatorsMap.put("/", (a, b) -> a / b);
     }
 
+    private final Random random = new Random();
+
     private int numOne;
     private int numTwo;
     private String operator;
@@ -26,7 +28,6 @@ public class CalcGame extends AbstractGame {
 
     @Override
     protected void initQuestion() {
-        Random random = new Random();
         this.numOne = random.nextInt(MAX - MIN + 1) + MIN;
         this.numTwo = random.nextInt(MAX - MIN + 1) + MIN;
         this.operator = new ArrayList<>(operatorsMap.keySet()).get(random.nextInt(4));

@@ -11,6 +11,8 @@ public class EvenGame extends AbstractGame {
     private static final int MIN = 1;
     private static final int MAX = 100;
 
+    private final Random random = new Random();
+
     private int num;
 
     public EvenGame(Scanner scanner) {
@@ -18,7 +20,6 @@ public class EvenGame extends AbstractGame {
     }
 
     protected void initQuestion() {
-        Random random = new Random();
         this.num = random.nextInt(MAX - MIN + 1) + MIN;
     }
 
