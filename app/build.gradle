@@ -1,6 +1,20 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath 'com.github.ben-manes:gradle-versions-plugin:+'
+    }
+}
+
+plugins {
+    id("org.sonarqube") version "4.4.1.3373"
+}
+
 apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'application'
-apply plugin: 'org.sonarqube'
 apply plugin: 'checkstyle'
 
 group = 'hexlet.code'
@@ -14,22 +28,10 @@ tasks.run {
     standardInput = System.in
 }
 
-sonarqube {
+sonar {
     properties {
         property "sonar.projectKey", "koleslena_java-project-61"
         property "sonar.organization", "koleslena"
-    }
-}
-
-buildscript {
-    repositories {
-        mavenLocal()
-        gradlePluginPortal()
-    }
-
-    dependencies {
-        classpath 'com.github.ben-manes:gradle-versions-plugin:+'
-        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
     }
 }
 
