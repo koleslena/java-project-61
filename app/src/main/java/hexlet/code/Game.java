@@ -42,7 +42,10 @@ public enum Game {
     public static String printGames() {
         StringBuilder sb = new StringBuilder("Please enter the game number and press Enter.\n");
         for (Game game : NUMBER_MAP.values()) {
-            sb.append(game.number + " - " + game.name + "\n");
+            sb.append(game.number)
+                    .append(" - ")
+                    .append(game.name)
+                    .append("\n");
         }
         return sb.toString();
     }
