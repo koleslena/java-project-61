@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class GreetGame {
+public class GreetGame implements GameInterface {
 
     protected String userName;
     protected Scanner scanner;
@@ -11,10 +11,14 @@ public class GreetGame {
         this.scanner = scanner;
     }
 
-    public void play() {
+    protected void greeting() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name? ");
         this.userName = this.scanner.next();
         System.out.println("Hello, " + this.userName + "!");
+    }
+
+    public void play() {
+        this.greeting();
     }
 }

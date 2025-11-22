@@ -32,6 +32,9 @@ public class App {
             case Game.EVEN:
                 new EvenGame(scanner).play();
                 break;
+            case Game.CALC:
+                new CalcGame(scanner).play();
+                break;
         }
 
         scanner.close();
