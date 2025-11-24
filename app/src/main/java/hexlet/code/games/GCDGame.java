@@ -21,21 +21,23 @@ public class GCDGame extends AbstractGame {
         return a;
     }
 
-    protected void greeting() {
-        super.greeting();
-        System.out.println("Find the greatest common divisor of given numbers.");
+    protected StringBuilder greeting() {
+        StringBuilder sb = super.greeting();
+        sb.append("Find the greatest common divisor of given numbers.");
+        return sb;
     }
 
     @Override
-    protected void initQuestion() {
+    protected StringBuilder question() {
         this.numOne = random.nextInt(MAX - MIN + 1) + MIN;
         this.numTwo = random.nextInt(MAX - MIN + 1) + MIN;
         this.result = this.calcGCD(this.numOne, this.numTwo);
-    }
 
-    @Override
-    protected void question() {
-        System.out.println("Question: " + this.numOne + " " + this.numTwo);
+        StringBuilder sb = new StringBuilder("Question: ");
+        sb.append(this.numOne)
+                .append(" ")
+                .append(this.numTwo);
+        return sb;
     }
 
     @Override

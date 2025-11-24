@@ -14,20 +14,17 @@ public class ProgressionGame extends AbstractGame {
         super(scanner);
     }
 
-    @Override
-    protected void initQuestion() {
-        this.start = random.nextInt(MAX - MIN + 1) + MIN;
-        this.step = random.nextInt(1, 10);
-        this.resultIdx = random.nextInt(SIZE);
-    }
-
     private Integer getNext(int index) {
         return this.start + this.step * index;
     }
 
     @Override
-    protected void question() {
-        StringBuilder sb = new StringBuilder();
+    protected StringBuilder question() {
+        this.start = random.nextInt(MAX - MIN + 1) + MIN;
+        this.step = random.nextInt(1, 10);
+        this.resultIdx = random.nextInt(SIZE);
+
+        StringBuilder sb = new StringBuilder("Question: ");
         for (int i = 0; i < SIZE; i++) {
             if (i != this.resultIdx) {
                 sb.append(this.getNext(i));
@@ -36,12 +33,13 @@ public class ProgressionGame extends AbstractGame {
                 sb.append(".. ");
             }
         }
-        System.out.println("Question: " + sb);
+        return sb;
     }
 
-    protected void greeting() {
-        super.greeting();
-        System.out.println("What number is missing in the progression?");
+    protected StringBuilder greeting() {
+        StringBuilder sb = super.greeting();
+        sb.append("What number is missing in the progression?");
+        return sb;
     }
 
     @Override

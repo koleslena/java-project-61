@@ -17,32 +17,31 @@ public class CalcGame extends AbstractGame {
         OPERATORS_MAP.put("/", (a, b) -> a / b);
     }
 
-    private int numOne;
-    private int numTwo;
     private int result;
-    private String operator;
 
     public CalcGame(Scanner scanner) {
         super(scanner);
     }
 
-    protected void greeting() {
-        super.greeting();
-        System.out.println("What is the result of the expression?");
+    protected StringBuilder greeting() {
+        StringBuilder sb = super.greeting();
+        sb.append("\nWhat is the result of the expression?");
+        return sb;
     }
 
     @Override
-    protected void initQuestion() {
-        this.numOne = random.nextInt(MAX - MIN + 1) + MIN;
-        this.numTwo = random.nextInt(MAX - MIN + 1) + MIN;
-        this.operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(random.nextInt(4));
-        this.result = OPERATORS_MAP.get(this.operator).applyAsInt(this.numOne, this.numTwo);
-    }
+    protected StringBuilder question() {
+        int numOne = random.nextInt(MAX - MIN + 1) + MIN;
+        int numTwo = random.nextInt(MAX - MIN + 1) + MIN;
+        String operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(random.nextInt(4));
+        this.result = OPERATORS_MAP.get(operator).applyAsInt(numOne, numTwo);
 
-    @Override
-    protected void question() {
-        System.out.println("Question: " + this.numOne + " "
-                + this.operator + " " + this.numTwo);
+        StringBuilder sb = new StringBuilder("Question: ");
+        sb.append(numOne).append(" ")
+                .append(operator)
+                .append(" ")
+                .append(numTwo);
+        return sb;
     }
 
     @Override

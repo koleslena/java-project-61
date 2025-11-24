@@ -13,17 +13,17 @@ public class EvenGame extends AbstractGame {
         super(scanner);
     }
 
-    protected void initQuestion() {
+    protected StringBuilder question() {
         this.num = random.nextInt(MAX - MIN + 1) + MIN;
+        StringBuilder sb = new StringBuilder("Question: ");
+        sb.append(this.num);
+        return sb;
     }
 
-    protected void question() {
-        System.out.println("Question: " + this.num);
-    }
-
-    protected void greeting() {
-        super.greeting();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    protected StringBuilder greeting() {
+        StringBuilder sb = super.greeting();
+        sb.append("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        return sb;
     }
 
     protected boolean isRight(String answer) {

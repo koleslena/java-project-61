@@ -53,7 +53,7 @@ public class App {
                 new PrimeGame(scanner).play();
                 break;
             default:
-                break;
+                System.out.println("The game with no " + game + " not implemented yet or not exist!");
         }
 
         scanner.close();

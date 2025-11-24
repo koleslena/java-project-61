@@ -11,9 +11,7 @@ public abstract class AbstractGame extends GreetGame implements GameInterface {
 
     protected final Random random = new Random();
 
-    protected abstract void initQuestion();
-
-    protected abstract void question();
+    protected abstract StringBuilder question();
 
     protected abstract boolean isRight(String answer);
 
@@ -29,14 +27,12 @@ public abstract class AbstractGame extends GreetGame implements GameInterface {
 
     @Override
     public void play() {
-        this.greeting();
+        System.out.println(this.greeting());
 
         int attemps = 0;
         while (attemps < SUCCESSFUL_ATTEMPTS) {
 
-            this.initQuestion();
-
-            question();
+            System.out.println(this.question());
 
             final String answer = this.scanner.next();
             System.out.println("Your answer: " + answer);

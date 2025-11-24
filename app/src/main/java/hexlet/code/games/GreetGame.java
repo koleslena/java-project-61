@@ -11,11 +11,12 @@ public class GreetGame implements GameInterface {
         this.scanner = scanner;
     }
 
-    protected void greeting() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name? ");
+    protected StringBuilder greeting() {
+        StringBuilder sb = new StringBuilder("Welcome to the Brain Games!\n");
+        sb.append("May I have your name? \n");
         this.userName = this.scanner.next();
-        System.out.println("Hello, " + this.userName + "!");
+        sb.append("Hello, ").append(this.userName).append("!");
+        return sb;
     }
 
     public void play() {

@@ -26,19 +26,18 @@ public class PrimeGame extends AbstractGame {
         return true;
     }
 
-    protected void greeting() {
-        super.greeting();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    protected StringBuilder greeting() {
+        StringBuilder sb = super.greeting();
+        sb.append("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        return sb;
     }
 
     @Override
-    protected void initQuestion() {
+    protected StringBuilder question() {
         this.number = random.nextInt(MAX - MIN + 1) + MIN;
-    }
-
-    @Override
-    protected void question() {
-        System.out.println("Question: " + this.number);
+        StringBuilder sb = new StringBuilder("Question: ");
+        sb.append(this.number);
+        return sb;
     }
 
     @Override
