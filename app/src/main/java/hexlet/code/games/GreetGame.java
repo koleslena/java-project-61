@@ -2,24 +2,29 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
-public class GreetGame implements GameInterface {
-
-    protected String userName;
-    protected Scanner scanner;
+public class GreetGame extends AbstractGame {
 
     public GreetGame(Scanner scanner) {
-        this.scanner = scanner;
+        super(scanner);
     }
 
-    protected StringBuilder greeting() {
-        StringBuilder sb = new StringBuilder("Welcome to the Brain Games!\n");
-        sb.append("May I have your name? \n");
-        this.userName = this.scanner.next();
-        sb.append("Hello, ").append(this.userName).append("!");
-        return sb;
+    @Override
+    public String introduction() {
+        return "";
     }
 
-    public void play() {
-        this.greeting();
+    @Override
+    public StringBuilder question() {
+        return null;
+    }
+
+    @Override
+    public boolean isRight(String answer) {
+        return false;
+    }
+
+    @Override
+    public String rightAnswer() {
+        return "";
     }
 }

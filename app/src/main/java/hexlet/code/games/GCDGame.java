@@ -21,14 +21,13 @@ public class GCDGame extends AbstractGame {
         return a;
     }
 
-    protected StringBuilder greeting() {
-        StringBuilder sb = super.greeting();
-        sb.append("Find the greatest common divisor of given numbers.");
-        return sb;
+    @Override
+    public String introduction() {
+        return "Find the greatest common divisor of given numbers.";
     }
 
     @Override
-    protected StringBuilder question() {
+    public StringBuilder question() {
         this.numOne = random.nextInt(MAX - MIN + 1) + MIN;
         this.numTwo = random.nextInt(MAX - MIN + 1) + MIN;
         this.result = this.calcGCD(this.numOne, this.numTwo);
@@ -41,12 +40,12 @@ public class GCDGame extends AbstractGame {
     }
 
     @Override
-    protected boolean isRight(String answer) {
+    public boolean isRight(String answer) {
         return Integer.valueOf(answer).equals(this.result);
     }
 
     @Override
-    protected String rightAnswer() {
+    public String rightAnswer() {
         return String.valueOf(this.result);
     }
 }

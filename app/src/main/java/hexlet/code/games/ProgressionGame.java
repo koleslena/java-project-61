@@ -19,7 +19,7 @@ public class ProgressionGame extends AbstractGame {
     }
 
     @Override
-    protected StringBuilder question() {
+    public StringBuilder question() {
         this.start = random.nextInt(MAX - MIN + 1) + MIN;
         this.step = random.nextInt(1, 10);
         this.resultIdx = random.nextInt(SIZE);
@@ -36,19 +36,18 @@ public class ProgressionGame extends AbstractGame {
         return sb;
     }
 
-    protected StringBuilder greeting() {
-        StringBuilder sb = super.greeting();
-        sb.append("What number is missing in the progression?");
-        return sb;
+    @Override
+    public String introduction() {
+        return "What number is missing in the progression?";
     }
 
     @Override
-    protected boolean isRight(String answer) {
+    public boolean isRight(String answer) {
         return Integer.valueOf(answer).equals(this.getNext(this.resultIdx));
     }
 
     @Override
-    protected String rightAnswer() {
+    public String rightAnswer() {
         return this.getNext(this.resultIdx).toString();
     }
 }

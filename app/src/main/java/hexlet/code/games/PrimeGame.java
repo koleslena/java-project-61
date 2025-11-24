@@ -26,14 +26,13 @@ public class PrimeGame extends AbstractGame {
         return true;
     }
 
-    protected StringBuilder greeting() {
-        StringBuilder sb = super.greeting();
-        sb.append("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        return sb;
+    @Override
+    public String introduction() {
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     @Override
-    protected StringBuilder question() {
+    public StringBuilder question() {
         this.number = random.nextInt(MAX - MIN + 1) + MIN;
         StringBuilder sb = new StringBuilder("Question: ");
         sb.append(this.number);
@@ -41,13 +40,13 @@ public class PrimeGame extends AbstractGame {
     }
 
     @Override
-    protected boolean isRight(String answer) {
+    public boolean isRight(String answer) {
         boolean prime = this.isPrime(this.number);
         return prime == YES.equals(answer);
     }
 
     @Override
-    protected String rightAnswer() {
+    public String rightAnswer() {
         return this.isPrime(this.number) ? YES : NO;
     }
 

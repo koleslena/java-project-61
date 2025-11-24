@@ -23,14 +23,13 @@ public class CalcGame extends AbstractGame {
         super(scanner);
     }
 
-    protected StringBuilder greeting() {
-        StringBuilder sb = super.greeting();
-        sb.append("\nWhat is the result of the expression?");
-        return sb;
+    @Override
+    public String introduction() {
+        return "What is the result of the expression?";
     }
 
     @Override
-    protected StringBuilder question() {
+    public StringBuilder question() {
         int numOne = random.nextInt(MAX - MIN + 1) + MIN;
         int numTwo = random.nextInt(MAX - MIN + 1) + MIN;
         String operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(random.nextInt(4));
@@ -45,12 +44,12 @@ public class CalcGame extends AbstractGame {
     }
 
     @Override
-    protected boolean isRight(String answer) {
+    public boolean isRight(String answer) {
         return Integer.valueOf(answer).equals(this.result);
     }
 
     @Override
-    protected String rightAnswer() {
+    public String rightAnswer() {
         return String.valueOf(this.result);
     }
 }
