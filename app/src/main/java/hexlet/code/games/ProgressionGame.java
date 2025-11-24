@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
-public class ProgressionGame extends AbstractGame {
+public final class ProgressionGame extends AbstractGame {
 
     private static final int SIZE = 10;
 
@@ -20,9 +20,9 @@ public class ProgressionGame extends AbstractGame {
 
     @Override
     public StringBuilder question() {
-        this.start = random.nextInt(MAX - MIN + 1) + MIN;
-        this.step = random.nextInt(1, 10);
-        this.resultIdx = random.nextInt(SIZE);
+        this.start = RANDOM.nextInt(MAX - MIN + 1) + MIN;
+        this.step = RANDOM.nextInt(1, 10);
+        this.resultIdx = RANDOM.nextInt(SIZE);
 
         StringBuilder sb = new StringBuilder("Question: ");
         for (int i = 0; i < SIZE; i++) {

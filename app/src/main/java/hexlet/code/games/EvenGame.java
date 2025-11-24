@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
-public class EvenGame extends AbstractGame {
+public final class EvenGame extends AbstractGame {
 
     private static final String NO = "no";
     private static final String YES = "yes";
@@ -13,8 +13,9 @@ public class EvenGame extends AbstractGame {
         super(scanner);
     }
 
+    @Override
     public StringBuilder question() {
-        this.num = random.nextInt(MAX - MIN + 1) + MIN;
+        this.num = RANDOM.nextInt(MAX - MIN + 1) + MIN;
         StringBuilder sb = new StringBuilder("Question: ");
         sb.append(this.num);
         return sb;

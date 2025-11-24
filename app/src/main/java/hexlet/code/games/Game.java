@@ -26,9 +26,9 @@ public enum Game {
         }
     }
 
-    Game(String name, String number) {
-        this.name = name;
-        this.number = number;
+    Game(String aName, String aNumber) {
+        this.name = aName;
+        this.number = aNumber;
     }
 
     public static Game fromNumber(String number) {

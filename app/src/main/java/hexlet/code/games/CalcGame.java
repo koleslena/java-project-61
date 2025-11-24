@@ -6,9 +6,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.function.IntBinaryOperator;
 
-public class CalcGame extends AbstractGame {
+public final class CalcGame extends AbstractGame {
 
     private static final Map<String, IntBinaryOperator> OPERATORS_MAP = new HashMap<>();
+    public static final int OPERATORS = 4;
 
     static {
         OPERATORS_MAP.put("+", Integer::sum);
@@ -30,9 +31,9 @@ public class CalcGame extends AbstractGame {
 
     @Override
     public StringBuilder question() {
-        int numOne = random.nextInt(MAX - MIN + 1) + MIN;
-        int numTwo = random.nextInt(MAX - MIN + 1) + MIN;
-        String operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(random.nextInt(4));
+        int numOne = RANDOM.nextInt(MAX - MIN + 1) + MIN;
+        int numTwo = RANDOM.nextInt(MAX - MIN + 1) + MIN;
+        String operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(RANDOM.nextInt(OPERATORS));
         this.result = OPERATORS_MAP.get(operator).applyAsInt(numOne, numTwo);
 
         StringBuilder sb = new StringBuilder("Question: ");

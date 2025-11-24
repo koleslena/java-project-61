@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
-public class GCDGame extends AbstractGame {
+public final class GCDGame extends AbstractGame {
 
     private int numOne;
     private int numTwo;
@@ -28,8 +28,8 @@ public class GCDGame extends AbstractGame {
 
     @Override
     public StringBuilder question() {
-        this.numOne = random.nextInt(MAX - MIN + 1) + MIN;
-        this.numTwo = random.nextInt(MAX - MIN + 1) + MIN;
+        this.numOne = RANDOM.nextInt(MAX - MIN + 1) + MIN;
+        this.numTwo = RANDOM.nextInt(MAX - MIN + 1) + MIN;
         this.result = this.calcGCD(this.numOne, this.numTwo);
 
         StringBuilder sb = new StringBuilder("Question: ");

@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
-public class GreetGame extends AbstractGame {
+public final class GreetGame extends AbstractGame {
 
     public GreetGame(Scanner scanner) {
         super(scanner);

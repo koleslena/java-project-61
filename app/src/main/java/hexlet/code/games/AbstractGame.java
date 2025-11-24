@@ -9,7 +9,7 @@ public abstract class AbstractGame implements GameInterface {
 
     private static final int SUCCESSFUL_ATTEMPTS = 3;
 
-    protected final Random random = new Random();
+    protected static final Random RANDOM = new Random();
 
     public abstract String introduction();
 
@@ -23,8 +23,8 @@ public abstract class AbstractGame implements GameInterface {
 
     private String userName;
 
-    public AbstractGame(Scanner scanner) {
-        this.scanner = scanner;
+    public AbstractGame(Scanner aScanner) {
+        this.scanner = aScanner;
     }
 
     @Override
