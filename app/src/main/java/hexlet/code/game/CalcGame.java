@@ -21,7 +21,7 @@ public class CalcGame {
     private static int numTwo;
     private static int result;
     private static String operator;
-    
+
     public static void initQuestion() {
         numOne = RandomUtil.getInt();
         numTwo = RandomUtil.getInt();

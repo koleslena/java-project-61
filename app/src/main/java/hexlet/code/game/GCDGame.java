@@ -6,7 +6,7 @@ public class GCDGame {
     private static int numOne;
     private static int numTwo;
     private static int result;
-    
+
     private static int calcGCD(int a, int b) {
         while (b != 0) {
             int temp = b;

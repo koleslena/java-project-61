@@ -2,7 +2,11 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.Games.*;
+import static hexlet.code.Games.GAMES_IS_RIGHT;
+import static hexlet.code.Games.GAMES_RUN;
+import static hexlet.code.Games.GAMES_RIGHT;
+import static hexlet.code.Games.GREETING_METHOD;
+import static hexlet.code.Games.INIT_QUESTION_METHOD;
 
 public class PlayGame {
 
@@ -29,7 +33,7 @@ public class PlayGame {
 
         if (gameIdx > 1 && gameIdx < 7) {
 
-            Runnable[] runnables = games_run[gameIdx - 2];
+            Runnable[] runnables = GAMES_RUN[gameIdx - 2];
             runnables[GREETING_METHOD].run();
 
             int attemps = 0;
@@ -40,12 +44,12 @@ public class PlayGame {
                 final String answer = scanner.next();
                 System.out.println("Your answer: " + answer);
 
-                boolean isRight = games_is_right[gameIdx - 2].apply(answer);
+                boolean isRight = GAMES_IS_RIGHT[gameIdx - 2].apply(answer);
                 if (isRight) {
                     System.out.println("Correct!");
                     attemps++;
                 } else {
-                    String rightAnswer = games_right[gameIdx - 2].get();
+                    String rightAnswer = GAMES_RIGHT[gameIdx - 2].get();
                     System.out.println(cover(answer)
                             + " is wrong answer ;(. Correct answer was "
                             + cover(rightAnswer) + ".");

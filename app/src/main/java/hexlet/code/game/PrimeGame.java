@@ -24,7 +24,7 @@ public class PrimeGame {
     public static void greeting() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
-    
+
     public static void initQuestion() {
         number = RandomUtil.getInt();
         System.out.println("Question: " + number);
