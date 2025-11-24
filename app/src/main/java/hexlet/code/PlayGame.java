@@ -37,8 +37,7 @@ public class PlayGame {
             Supplier<String>[] methods = GAMES_FUNCTIONS[gameIdx - 2];
             System.out.println(methods[GREETING_METHOD].get());
 
-            int attemps = 0;
-            while (attemps < SUCCESSFUL_ATTEMPTS) {
+            for (int i = 0; i < SUCCESSFUL_ATTEMPTS; i++) {
 
                 System.out.println(methods[INIT_QUESTION_METHOD].get());
 
@@ -48,14 +47,13 @@ public class PlayGame {
                 boolean isRight = GAMES_IS_RIGHT[gameIdx - 2].apply(answer);
                 if (isRight) {
                     System.out.println("Correct!");
-                    attemps++;
                 } else {
                     String rightAnswer = methods[RIGHT_ANSWER].get();
                     System.out.println(cover(answer)
                             + " is wrong answer ;(. Correct answer was "
                             + cover(rightAnswer) + ".");
                     System.out.println("Let's try again, " + userName + "!");
-                    attemps = 0;
+                    return;
                 }
             }
             System.out.println("Congratulations, " + userName + "!");

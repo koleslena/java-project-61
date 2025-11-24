@@ -22,7 +22,7 @@ public class App {
 
         System.out.println("Your choice: " + game);
 
-        PlayGame.play(Integer.valueOf(game), scanner);
+        PlayGame.play(Integer.parseInt(game), scanner);
 
         scanner.close();
     }

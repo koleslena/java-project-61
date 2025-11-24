@@ -22,7 +22,7 @@ public class CalcGame {
     public static String initQuestion() {
         int numOne = RandomUtil.getInt();
         int numTwo = RandomUtil.getInt();
-        String operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(RandomUtil.getInt(4));
+        String operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(RandomUtil.getInt(3));
         result = OPERATORS_MAP.get(operator).applyAsInt(numOne, numTwo);
         return "Question: " + numOne + " " + operator + " " + numTwo;
     }
