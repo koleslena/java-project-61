@@ -9,13 +9,11 @@ import java.util.function.IntBinaryOperator;
 public final class CalcGame extends AbstractGame {
 
     private static final Map<String, IntBinaryOperator> OPERATORS_MAP = new HashMap<>();
-    public static final int OPERATORS = 4;
 
     static {
         OPERATORS_MAP.put("+", Integer::sum);
         OPERATORS_MAP.put("-", (a, b) -> a - b);
         OPERATORS_MAP.put("*", (a, b) -> a * b);
-        OPERATORS_MAP.put("/", (a, b) -> a / b);
     }
 
     private int result;
@@ -33,7 +31,7 @@ public final class CalcGame extends AbstractGame {
     public StringBuilder question() {
         int numOne = RANDOM.nextInt(MAX - MIN + 1) + MIN;
         int numTwo = RANDOM.nextInt(MAX - MIN + 1) + MIN;
-        String operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(RANDOM.nextInt(OPERATORS));
+        String operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(RANDOM.nextInt(OPERATORS_MAP.size()));
         this.result = OPERATORS_MAP.get(operator).applyAsInt(numOne, numTwo);
 
         StringBuilder sb = new StringBuilder("Question: ");
