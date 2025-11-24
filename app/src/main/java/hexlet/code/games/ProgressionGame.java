@@ -5,6 +5,7 @@ import java.util.Scanner;
 public final class ProgressionGame extends AbstractGame {
 
     private static final int SIZE = 10;
+    private static final int STEP = 10;
 
     private int start;
     private int step;
@@ -21,7 +22,7 @@ public final class ProgressionGame extends AbstractGame {
     @Override
     public StringBuilder question() {
         this.start = RANDOM.nextInt(MAX - MIN + 1) + MIN;
-        this.step = RANDOM.nextInt(1, 10);
+        this.step = RANDOM.nextInt(1, STEP);
         this.resultIdx = RANDOM.nextInt(SIZE);
 
         StringBuilder sb = new StringBuilder("Question: ");

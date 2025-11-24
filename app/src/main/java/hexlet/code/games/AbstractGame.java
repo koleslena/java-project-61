@@ -27,6 +27,9 @@ public abstract class AbstractGame implements GameInterface {
         this.scanner = aScanner;
     }
 
+    /**
+     * Play games engine.
+     */
     @Override
     public void play() {
 
@@ -53,7 +56,7 @@ public abstract class AbstractGame implements GameInterface {
         System.out.println("Congratulations, " + this.userName + "!");
     }
 
-    protected void greeting() {
+    protected final void greeting() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         this.userName = scanner.next();
