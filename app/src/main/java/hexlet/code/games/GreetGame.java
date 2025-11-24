@@ -9,6 +9,11 @@ public class GreetGame extends AbstractGame {
     }
 
     @Override
+    public void play() {
+        this.greeting();
+    }
+
+    @Override
     public String introduction() {
         return "";
     }

@@ -53,7 +53,7 @@ public abstract class AbstractGame implements GameInterface {
         System.out.println("Congratulations, " + this.userName + "!");
     }
 
-    private void greeting() {
+    protected void greeting() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         this.userName = scanner.next();
