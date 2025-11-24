@@ -13,32 +13,37 @@ public class Games {
 
     public static final int GREETING_METHOD = 0;
     public static final int INIT_QUESTION_METHOD = 1;
+    public static final int RIGHT_ANSWER = 2;
 
-    public static final Runnable[][] GAMES_RUN = new Runnable[5][2];
     public static final Function<String, Boolean>[] GAMES_IS_RIGHT = new Function[5];
-    public static final Supplier<String>[] GAMES_RIGHT = new Supplier[5];
+    public static final Supplier<String>[][] GAMES_FUNCTIONS = new Supplier[5][3];
     public static final String[] GAME_NAMES = new String[7];
 
     static {
-        GAMES_RUN[0] = new Runnable[]{EvenGame::greeting, EvenGame::initQuestion};
+        GAMES_FUNCTIONS[0] = new Supplier[]{EvenGame::greeting,
+                                            EvenGame::initQuestion,
+                                            EvenGame::rightAnswer};
         GAMES_IS_RIGHT[0] = EvenGame::isRight;
-        GAMES_RIGHT[0] = EvenGame::rightAnswer;
 
-        GAMES_RUN[1] = new Runnable[]{CalcGame::greeting, CalcGame::initQuestion};
+        GAMES_FUNCTIONS[1] = new Supplier[]{CalcGame::greeting,
+                                            CalcGame::initQuestion,
+                                            CalcGame::rightAnswer};
         GAMES_IS_RIGHT[1] = CalcGame::isRight;
-        GAMES_RIGHT[1] = CalcGame::rightAnswer;
 
-        GAMES_RUN[2] = new Runnable[]{GCDGame::greeting, GCDGame::initQuestion};
+        GAMES_FUNCTIONS[2] = new Supplier[]{GCDGame::greeting,
+                                            GCDGame::initQuestion,
+                                            GCDGame::rightAnswer};
         GAMES_IS_RIGHT[2] = GCDGame::isRight;
-        GAMES_RIGHT[2] = GCDGame::rightAnswer;
 
-        GAMES_RUN[3] = new Runnable[]{ProgressionGame::greeting, ProgressionGame::initQuestion};
+        GAMES_FUNCTIONS[3] = new Supplier[]{ProgressionGame::greeting,
+                                            ProgressionGame::initQuestion,
+                                            ProgressionGame::rightAnswer};
         GAMES_IS_RIGHT[3] = ProgressionGame::isRight;
-        GAMES_RIGHT[3] = ProgressionGame::rightAnswer;
 
-        GAMES_RUN[4] = new Runnable[]{PrimeGame::greeting, PrimeGame::initQuestion};
+        GAMES_FUNCTIONS[4] = new Supplier[]{PrimeGame::greeting,
+                                            PrimeGame::initQuestion,
+                                            PrimeGame::rightAnswer};
         GAMES_IS_RIGHT[4] = PrimeGame::isRight;
-        GAMES_RIGHT[4] = PrimeGame::rightAnswer;
 
         GAME_NAMES[0] = "Exit";
         GAME_NAMES[1] = "Greet";

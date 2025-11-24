@@ -9,13 +9,13 @@ public class EvenGame {
 
     private static int num;
 
-    public static void initQuestion() {
+    public static String initQuestion() {
         num = RandomUtil.getInt();
-        System.out.println("Question: " + num);
+        return "Question: " + num;
     }
 
-    public static void greeting() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    public static String greeting() {
+        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
     public static Boolean isRight(String answer) {

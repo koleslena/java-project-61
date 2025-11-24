@@ -9,12 +9,12 @@ public class ProgressionGame {
     private static int step;
     private static int resultIdx;
 
-    public static void initQuestion() {
+    public static String initQuestion() {
         start = RandomUtil.getInt();
         step = RandomUtil.getInt(1, 10);
         resultIdx = RandomUtil.getInt(SIZE);
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("Question: ");
         for (int i = 0; i < SIZE; i++) {
             if (i != resultIdx) {
                 sb.append(getNext(i));
@@ -23,15 +23,15 @@ public class ProgressionGame {
                 sb.append(".. ");
             }
         }
-        System.out.println("Question: " + sb);
+        return sb.toString();
     }
 
     private static Integer getNext(int index) {
         return start + step * index;
     }
 
-    public static void greeting() {
-        System.out.println("What number is missing in the progression?");
+    public static String greeting() {
+        return "What number is missing in the progression?";
     }
 
     public static boolean isRight(String answer) {

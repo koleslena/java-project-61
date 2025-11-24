@@ -1,12 +1,13 @@
 package hexlet.code;
 
 import java.util.Scanner;
+import java.util.function.Supplier;
 
 import static hexlet.code.Games.GAMES_IS_RIGHT;
-import static hexlet.code.Games.GAMES_RUN;
-import static hexlet.code.Games.GAMES_RIGHT;
 import static hexlet.code.Games.GREETING_METHOD;
 import static hexlet.code.Games.INIT_QUESTION_METHOD;
+import static hexlet.code.Games.RIGHT_ANSWER;
+import static hexlet.code.Games.GAMES_FUNCTIONS;
 
 public class PlayGame {
 
@@ -33,13 +34,13 @@ public class PlayGame {
 
         if (gameIdx > 1 && gameIdx < 7) {
 
-            Runnable[] runnables = GAMES_RUN[gameIdx - 2];
-            runnables[GREETING_METHOD].run();
+            Supplier<String>[] methods = GAMES_FUNCTIONS[gameIdx - 2];
+            System.out.println(methods[GREETING_METHOD].get());
 
             int attemps = 0;
             while (attemps < SUCCESSFUL_ATTEMPTS) {
 
-                runnables[INIT_QUESTION_METHOD].run();
+                System.out.println(methods[INIT_QUESTION_METHOD].get());
 
                 final String answer = scanner.next();
                 System.out.println("Your answer: " + answer);
@@ -49,7 +50,7 @@ public class PlayGame {
                     System.out.println("Correct!");
                     attemps++;
                 } else {
-                    String rightAnswer = GAMES_RIGHT[gameIdx - 2].get();
+                    String rightAnswer = methods[RIGHT_ANSWER].get();
                     System.out.println(cover(answer)
                             + " is wrong answer ;(. Correct answer was "
                             + cover(rightAnswer) + ".");

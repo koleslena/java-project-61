@@ -16,15 +16,15 @@ public class GCDGame {
         return a;
     }
 
-    public static void greeting() {
-        System.out.println("Find the greatest common divisor of given numbers.");
+    public static String greeting() {
+        return "Find the greatest common divisor of given numbers.";
     }
 
-    public static void initQuestion() {
+    public static String initQuestion() {
         numOne = RandomUtil.getInt();
         numTwo = RandomUtil.getInt();
         result = calcGCD(numOne, numTwo);
-        System.out.println("Question: " + numOne + " " + numTwo);
+        return "Question: " + numOne + " " + numTwo;
     }
 
     public static boolean isRight(String answer) {

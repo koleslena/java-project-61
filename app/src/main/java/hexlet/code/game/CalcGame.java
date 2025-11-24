@@ -17,22 +17,18 @@ public class CalcGame {
         OPERATORS_MAP.put("/", (a, b) -> a / b);
     }
 
-    private static int numOne;
-    private static int numTwo;
     private static int result;
-    private static String operator;
 
-    public static void initQuestion() {
-        numOne = RandomUtil.getInt();
-        numTwo = RandomUtil.getInt();
-        operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(RandomUtil.getInt(4));
+    public static String initQuestion() {
+        int numOne = RandomUtil.getInt();
+        int numTwo = RandomUtil.getInt();
+        String operator = new ArrayList<>(OPERATORS_MAP.keySet()).get(RandomUtil.getInt(4));
         result = OPERATORS_MAP.get(operator).applyAsInt(numOne, numTwo);
-        System.out.println("Question: " + numOne + " "
-                + operator + " " + numTwo);
+        return "Question: " + numOne + " " + operator + " " + numTwo;
     }
 
-    public static void greeting() {
-        System.out.println("What is the result of the expression?");
+    public static String greeting() {
+        return "What is the result of the expression?";
     }
 
     public static boolean isRight(String answer) {

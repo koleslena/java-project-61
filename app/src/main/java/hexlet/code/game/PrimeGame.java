@@ -21,13 +21,13 @@ public class PrimeGame {
         return true;
     }
 
-    public static void greeting() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    public static String greeting() {
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
-    public static void initQuestion() {
+    public static String initQuestion() {
         number = RandomUtil.getInt();
-        System.out.println("Question: " + number);
+        return "Question: " + number;
     }
 
     public static boolean isRight(String answer) {
